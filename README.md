@@ -14,6 +14,23 @@ A suite of command-line tools for interacting with Perforce Helix Core server us
   - Sync streams to local workspace
 - Consistent authentication and configuration mechanism across all tools
 
+## Quick Start
+
+1. Install the phc package (see [Installation](#installation))
+
+2. Save a profile with your credentials:
+   ```bash
+   phc save-profile --profile myprofile --host ssl:your-p4-server:1666 --username your-username
+   # You will be prompted to enter your password securely
+   ```
+
+3. Now you're ready to run any of the commands:
+   ```bash
+   phc list-depots --profile myprofile
+   phc list-streams --profile myprofile --depot your-depot
+   phc sync-stream --profile myprofile --depot your-depot --stream your-stream --workspace-path /path/to/workspace
+   ```
+
 ## Installation
 
 ### Prerequisites
@@ -195,5 +212,3 @@ When you run `pip install -e .` during development or installation, `setup.py` i
 
 The version number is automatically extracted from the `__version__` variable in the package's `__init__.py` file, 
 and the long description is pulled from this README.md file.
-
-
